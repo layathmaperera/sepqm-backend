@@ -1,0 +1,884 @@
+\documentclass[12pt,a4paper]{article}
+
+% ── Packages ──────────────────────────────────────────────────────────────────
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+\usepackage{caption}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{tikz}
+\usepackage{pgf-pie}
+\usepackage{float}
+
+% ── Colour Definitions ───────────────────────────────────────────────────────
+\definecolor{codebg}{HTML}{F5F5F5}
+\definecolor{codeframe}{HTML}{CCCCCC}
+\definecolor{javakw}{HTML}{7F0055}
+\definecolor{javastr}{HTML}{2A00FF}
+\definecolor{javacmt}{HTML}{3F7F5F}
+\definecolor{xmltag}{HTML}{000080}
+\definecolor{sliitblue}{HTML}{003366}
+\definecolor{accentgreen}{HTML}{28A745}
+\definecolor{accentorange}{HTML}{FD7E14}
+\definecolor{lightgray}{HTML}{F0F0F0}
+
+% ── Listings styles ──────────────────────────────────────────────────────────
+\lstdefinestyle{javastyle}{
+    language=Java,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{javakw}\bfseries,
+    stringstyle=\color{javastr},
+    commentstyle=\color{javacmt}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b
+}
+
+\lstdefinestyle{xmlstyle}{
+    language=XML,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{xmltag}\bfseries,
+    stringstyle=\color{javastr},
+    commentstyle=\color{javacmt}\itshape,
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+    morekeywords={suite,test,classes,class}
+}
+
+\lstdefinestyle{yamlstyle}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=2,
+    captionpos=b,
+    commentstyle=\color{javacmt}\itshape,
+    morecomment=[l]{\#}
+}
+
+\lstdefinestyle{gherkinstyle}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=2,
+    captionpos=b,
+    keywordstyle=\color{javakw}\bfseries,
+    stringstyle=\color{javastr},
+    commentstyle=\color{javacmt}\itshape,
+    morekeywords={Feature,Scenario,Given,When,Then,And,But,Background,Examples},
+    morecomment=[l]{\#}
+}
+
+\lstdefinestyle{bashstyle}{
+    basicstyle=\ttfamily\footnotesize,
+    backgroundcolor=\color{codebg},
+    frame=single,
+    rulecolor=\color{codeframe},
+    numbers=none,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=2,
+    captionpos=b,
+    commentstyle=\color{javacmt}\itshape,
+    morecomment=[l]{\#}
+}
+
+% ── tcolorbox styles ─────────────────────────────────────────────────────────
+\tcbset{
+    noteboxstyle/.style={
+        colback=blue!5, colframe=sliitblue, fonttitle=\bfseries,
+        boxrule=0.5pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt
+    },
+    insightbox/.style={
+        colback=green!5, colframe=accentgreen, fonttitle=\bfseries,
+        boxrule=0.5pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt
+    },
+    warnbox/.style={
+        colback=orange!5, colframe=accentorange, fonttitle=\bfseries,
+        boxrule=0.5pt, arc=2pt, left=6pt, right=6pt, top=4pt, bottom=4pt
+    }
+}
+
+% ── Page numbering in footer ─────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize SE3010 -- Software Engineering Process \& Quality Management}
+\fancyhead[R]{\footnotesize Assignment 01}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=sliitblue,
+    urlcolor=sliitblue
+}
+
+% ── Line spacing ─────────────────────────────────────────────────────────────
+\onehalfspacing
+
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{document}
+
+% ══════════════════════════════════════════════════════════════════════════════
+%                              COVER PAGE
+% ══════════════════════════════════════════════════════════════════════════════
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+
+    {\Large\textbf{Sri Lanka Institute of Information Technology}\par}
+    \vspace{0.3cm}
+    {\large Faculty of Computing\par}
+
+    \vspace{2cm}
+
+    {\LARGE\bfseries\color{sliitblue} SE3010\par}
+    \vspace{0.3cm}
+    {\Large\bfseries Software Engineering Process\\and Quality Management\par}
+
+    \vspace{1.5cm}
+
+    {\Huge\bfseries Assignment 1\par}
+    \vspace{0.5cm}
+    {\Large\itshape Testing Tool Evaluation and Demonstration Report\par}
+    \vspace{0.3cm}
+    {\large Tool: TestNG with Cucumber BDD\par}
+
+    \vspace{2cm}
+
+    % ── Group Details ─────────────────────────────────────────────────────────
+    {\large\bfseries Group Members\par}
+    \vspace{0.5cm}
+
+    \begin{tabular}{ll}
+        \toprule
+        \textbf{Registration No.} & \textbf{Name} \\
+        \midrule
+        IT23534254 & PATHIRANA P P D S S \\
+        IT23670334 & PERERA K K L A \\
+        IT23600416 & WIJEKOON W M V M \\
+        IT23543300 & RANKETH K A D \\
+        \bottomrule
+    \end{tabular}
+
+    \vspace{2cm}
+
+    {\large\textbf{Submission Date:} March 06, 2026\par}
+
+    \vfill
+\end{titlepage}
+
+% ── Table of Contents ─────────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Introduction}
+% ══════════════════════════════════════════════════════════════════════════════
+
+Software testing is a fundamental component of the software engineering lifecycle, ensuring that applications meet functional requirements, perform reliably, and maintain quality standards throughout development. As software systems grow in complexity, selecting the right testing tools becomes a critical decision that directly impacts team productivity, code reliability, and long-term maintainability.
+
+This report presents a critical reflection on the insights obtained from evaluating and implementing \textbf{TestNG} as the primary testing framework, combined with \textbf{Cucumber} for Behaviour-Driven Development (BDD), in a \textbf{Student Management REST API} project built with Spring Boot 3.4.3. The evaluation was conducted as a group effort, where each team member explored a distinct feature of the testing ecosystem, enabling a comprehensive and multi-perspective understanding of the tool's capabilities.
+
+\subsection{Objectives}
+
+The primary objectives of this assignment were to:
+
+\begin{enumerate}
+    \item Evaluate TestNG as an alternative to JUnit for Java-based testing.
+    \item Explore key testing features including assertions, fixtures, mocking, and BDD.
+    \item Implement a fully functional test suite demonstrating each feature.
+    \item Integrate automated testing into a CI/CD pipeline using GitHub Actions.
+    \item Critically reflect on the strengths, limitations, and practical applicability of the chosen tools.
+\end{enumerate}
+
+\subsection{Application Under Test}
+
+The subject application is a \textbf{Student Management REST API} that provides CRUD operations for managing student records. The technology stack includes:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+    \toprule
+    \textbf{Component} & \textbf{Technology} & \textbf{Version} \\
+    \midrule
+    Backend Framework & Spring Boot & 3.4.3 \\
+    Language & Java & 17 \\
+    Test Runner & TestNG & 7.10.2 \\
+    BDD Framework & Cucumber (java, testng, spring) & 7.18.0 \\
+    Mocking & Mockito Core & 5.12.0 \\
+    Test Database & H2 (in-memory) & Runtime \\
+    Production Database & PostgreSQL (Neon Cloud) & Runtime \\
+    Build Tool & Maven + Surefire & 3.2.5 \\
+    CI/CD & GitHub Actions & -- \\
+    Frontend & React + Vite & -- \\
+    \bottomrule
+\end{tabular}
+\caption{Complete technology stack}
+\end{table}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Why TestNG Over JUnit?}
+% ══════════════════════════════════════════════════════════════════════════════
+
+One of the most significant decisions in this project was choosing TestNG over JUnit, the more commonly used testing framework in the Java ecosystem. This section reflects on the reasoning and insights gained from this choice.
+
+\subsection{Comparative Analysis}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+    \toprule
+    \textbf{Feature} & \textbf{TestNG} & \textbf{JUnit 5} \\
+    \midrule
+    Test Suite Configuration & XML-based (\texttt{testng.xml}) & \texttt{@Suite} annotations \\
+    Data-Driven Testing & Built-in \texttt{@DataProvider} & \texttt{@ParameterizedTest} \\
+    Parallel Execution & Native XML support & Via build tool config \\
+    Dependency Management & \texttt{@Test(dependsOnMethods)} & Not supported natively \\
+    Grouping & \texttt{@Test(groups = \{...\})} & \texttt{@Tag} \\
+    Fixture Granularity & Suite/Test/Class/Method levels & Class/Method levels \\
+    Reporting & Built-in HTML reports & Requires plugins \\
+    Spring Integration & \texttt{AbstractTestNGSpringContextTests} & Native support \\
+    \bottomrule
+\end{tabular}
+\caption{TestNG vs JUnit 5 feature comparison}
+\end{table}
+
+\subsection{Critical Reflection on TestNG}
+
+\begin{tcolorbox}[insightbox, title=Insight: TestNG's Strengths]
+TestNG's \texttt{@DataProvider} proved significantly more intuitive than JUnit's parameterised test approach. The ability to define named data providers and reference them across multiple test methods reduced code duplication and improved readability. The XML-based suite configuration (\texttt{testng.xml}) made it straightforward to organise tests by team member, run selective test groups, and manage execution order without modifying Java code.
+\end{tcolorbox}
+
+\begin{tcolorbox}[warnbox, title=Challenge: Ecosystem Compatibility]
+The primary challenge encountered was Spring Boot's default alignment with JUnit. The \texttt{spring-boot-starter-test} dependency bundles JUnit by default, requiring \textbf{six explicit exclusions} in \texttt{pom.xml} to prevent classpath conflicts. Additionally, test classes needed to extend \texttt{AbstractTestNGSpringContextTests} instead of using JUnit's simpler annotation-based approach. This added initial setup complexity but provided a deeper understanding of how test frameworks integrate with Spring's dependency injection.
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Feature Demonstrations and Reflections}
+% ══════════════════════════════════════════════════════════════════════════════
+
+% ── MEMBER 1 ──────────────────────────────────────────────────────────────────
+\subsection{Member 1 (IT23534254 -- PATHIRANA P P D S S): TestNG Assertions}
+
+\subsubsection{Demonstration Overview}
+
+Member 1 implemented \textbf{controller-level integration tests} using TestNG assertions combined with Spring's MockMvc framework. The tests validate HTTP response status codes and response body content for the Student REST API endpoints.
+
+\subsubsection{Key Code Segment}
+
+\begin{lstlisting}[style=javastyle, caption={Controller assertion test -- verifying HTTP 201 Created}]
+@SpringBootTest(classes = Se3010TestingApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
+public class StudentControllerTest
+        extends AbstractTestNGSpringContextTests {
+
+    @Autowired private MockMvc mockMvc;
+    @Autowired private StudentRepository studentRepository;
+    @Autowired private ObjectMapper objectMapper;
+
+    @BeforeMethod
+    public void cleanUp() {
+        studentRepository.deleteAll();
+    }
+
+    @Test
+    public void testCreateStudent_Returns201AndCorrectBody()
+            throws Exception {
+        Student student = Student.builder()
+            .name("Alice").email("alice@test.com")
+            .age(22).course("SE3010").build();
+
+        String body = mockMvc.perform(post("/api/students")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(student)))
+            .andExpect(status().isCreated())
+            .andExpect(jsonPath("$.name").value("Alice"))
+            .andExpect(jsonPath("$.email").value("alice@test.com"))
+            .andReturn().getResponse().getContentAsString();
+
+        Assert.assertFalse(body.isEmpty(),
+            "Response body must not be empty");
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Test Cases}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{clcc}
+    \toprule
+    \textbf{\#} & \textbf{Test Case} & \textbf{HTTP Method} & \textbf{Expected} \\
+    \midrule
+    1 & Create student with valid data & POST & 201 Created \\
+    2 & Retrieve existing student by ID & GET & 200 OK \\
+    3 & Retrieve non-existent student & GET & 404 Not Found \\
+    4 & Create student with malformed JSON & POST & 400 Bad Request \\
+    \bottomrule
+\end{tabular}
+\caption{Member 1 test cases -- Controller assertions}
+\end{table}
+
+\subsubsection{Critical Reflection}
+
+The integration testing approach using MockMvc provided a realistic simulation of HTTP interactions without the overhead of starting an actual server. A key insight was that TestNG's \texttt{Assert} class offers the same assertion capabilities as JUnit's \texttt{Assertions}, with the notable difference that the \textbf{expected value comes before the actual value} in \texttt{assertEquals()}, which is the reverse of JUnit 5's convention. This subtle difference initially caused confusion but highlighted the importance of understanding framework-specific conventions.
+
+The use of \texttt{@BeforeMethod} for database cleanup ensured complete test isolation -- each test begins with a clean state, preventing data leakage between tests. This fixture approach proved essential for reliable integration testing with a shared H2 database.
+
+% ── MEMBER 2 ──────────────────────────────────────────────────────────────────
+\subsection{Member 2 (IT23670334 -- PERERA K K L A): Fixtures, DataProvider \& Mocking}
+
+\subsubsection{Demonstration Overview}
+
+Member 2 implemented \textbf{service-level unit tests} demonstrating three distinct TestNG features: test fixtures (\texttt{@BeforeMethod}/\texttt{@AfterMethod}), parameterised testing (\texttt{@DataProvider}), and Mockito-based mocking -- all without any Spring context or JUnit dependency.
+
+\subsubsection{Key Code Segment -- Fixtures and DataProvider}
+
+\begin{lstlisting}[style=javastyle, caption={TestNG fixtures and DataProvider for parameterised testing}]
+public class StudentServiceTest {
+
+    private StudentRepository studentRepository;
+    private StudentService studentService;
+
+    @BeforeMethod
+    public void setUp() {
+        studentRepository = mock(StudentRepository.class);
+        studentService = new StudentService(studentRepository);
+        System.out.println(
+            "[FIXTURE] Fresh mocks created - test starting");
+    }
+
+    @AfterMethod
+    public void tearDown() {
+        verifyNoMoreInteractions(studentRepository);
+        System.out.println(
+            "[FIXTURE] Verified - test finished");
+    }
+
+    @DataProvider(name = "studentData")
+    public Object[][] studentDataProvider() {
+        return new Object[][] {
+            {"Alice", "alice@test.com", 22, "SE3010"},
+            {"Bob",   "bob@test.com",   25, "SE3020"},
+            {"Carol", "carol@test.com", 20, "SE3030"},
+        };
+    }
+
+    @Test(dataProvider = "studentData")
+    public void testCreateStudent(String name, String email,
+            int age, String course) {
+        Student input = Student.builder()
+            .name(name).email(email)
+            .age(age).course(course).build();
+        Student saved = Student.builder()
+            .id(1L).name(name).email(email)
+            .age(age).course(course).build();
+
+        when(studentRepository.findByEmail(email))
+            .thenReturn(Optional.empty());
+        when(studentRepository.save(any(Student.class)))
+            .thenReturn(saved);
+
+        Student result = studentService.createStudent(input);
+
+        Assert.assertNotNull(result.getId());
+        Assert.assertEquals(result.getName(), name);
+        verify(studentRepository).findByEmail(email);
+        verify(studentRepository).save(any(Student.class));
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Test Cases}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{cllc}
+    \toprule
+    \textbf{\#} & \textbf{Test Case} & \textbf{Mock Behaviour} & \textbf{Runs} \\
+    \midrule
+    1 & Create student (Alice) & \texttt{findByEmail} $\rightarrow$ empty, \texttt{save} $\rightarrow$ saved & 1 \\
+    2 & Create student (Bob) & \texttt{findByEmail} $\rightarrow$ empty, \texttt{save} $\rightarrow$ saved & 1 \\
+    3 & Create student (Carol) & \texttt{findByEmail} $\rightarrow$ empty, \texttt{save} $\rightarrow$ saved & 1 \\
+    4 & Get student by ID -- found & \texttt{findById} $\rightarrow$ \texttt{Optional.of(student)} & 1 \\
+    5 & Get student by ID -- not found & \texttt{findById} $\rightarrow$ \texttt{Optional.empty()} & 1 \\
+    6 & Get all students & \texttt{findAll} $\rightarrow$ list of 1 & 1 \\
+    \bottomrule
+\end{tabular}
+\caption{Member 2 test cases -- 6 total executions (3 from DataProvider + 3 individual)}
+\end{table}
+
+\subsubsection{Critical Reflection}
+
+The most significant insight from implementing fixtures was understanding how \texttt{@BeforeMethod} operates differently from JUnit's \texttt{@BeforeEach} in the context of DataProviders. In TestNG, the setup method executes before \textit{each row} of the DataProvider, meaning that for the \texttt{testCreateStudent} method with 3 data rows, the \texttt{setUp()} method runs 3 separate times, creating completely fresh mocks each time. This behaviour guarantees that mock state from one test row never bleeds into another.
+
+The \texttt{@AfterMethod} with \texttt{verifyNoMoreInteractions()} served as an automatic safety net. If any test accidentally triggered an unexpected repository call, the teardown would immediately flag it. This pattern, while adding minimal overhead, significantly improved confidence in the test suite's accuracy.
+
+Using Mockito \textbf{standalone} (without \texttt{mockito-junit-jupiter}) was an important learning experience. The \texttt{mock()} static method from Mockito Core works independently of any test framework, demonstrating that Mockito is framework-agnostic and can be used with TestNG just as effectively as with JUnit.
+
+% ── MEMBER 3 ──────────────────────────────────────────────────────────────────
+\subsection{Member 3 (IT23600416 -- WIJEKOON W M V M): Cucumber BDD Step Definitions}
+
+\subsubsection{Demonstration Overview}
+
+Member 3 implemented \textbf{Behaviour-Driven Development (BDD)} test scenarios using Cucumber's Gherkin syntax and Java step definitions. The BDD approach allows test scenarios to be written in plain English, bridging the gap between technical implementation and business requirements.
+
+\subsubsection{Feature File -- Gherkin Scenarios}
+
+\begin{lstlisting}[style=gherkinstyle, caption={BDD scenarios in Gherkin -- \texttt{student\_registration.feature}}]
+Feature: Student Registration API
+  As an admin
+  I want to register students via the API
+  So that I can manage the student roster
+
+  Scenario: Successful student registration
+    Given no students exist in the system
+    When I register a student with name "Alice"
+         email "alice@uni.com" age 22 course "SE3010"
+    Then the registration response status should be 201
+    And the registered student name should be "Alice"
+
+  Scenario: Duplicate email returns conflict error
+    Given a student with email "bob@uni.com" already exists
+    When I register a student with name "Bob2"
+         email "bob@uni.com" age 24 course "SE3020"
+    Then the registration response status should be 409
+
+  Scenario: Missing required field returns bad request error
+    Given no students exist in the system
+    When I send a registration request with malformed JSON body
+    Then the registration response status should be 400
+\end{lstlisting}
+
+\subsubsection{Step Definitions}
+
+\begin{lstlisting}[style=javastyle, caption={Cucumber step definitions -- \texttt{StudentSteps.java}}]
+@CucumberContextConfiguration
+@SpringBootTest(classes = Se3010TestingApplication.class,
+        webEnvironment = SpringBootTest.WebEnvironment.MOCK)
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
+public class StudentSteps {
+
+    @Autowired private MockMvc mockMvc;
+    @Autowired private StudentRepository studentRepository;
+    @Autowired private ObjectMapper objectMapper;
+    private MvcResult lastResult;
+
+    @Before
+    public void resetDatabase() {
+        studentRepository.deleteAll();
+    }
+
+    @Given("no students exist in the system")
+    public void no_students_exist() {
+        studentRepository.deleteAll();
+    }
+
+    @Given("a student with email {string} already exists")
+    public void a_student_with_email_already_exists(
+            String email) {
+        studentRepository.deleteAll();
+        studentRepository.save(Student.builder()
+            .name("Existing").email(email)
+            .age(20).course("SE0000").build());
+    }
+
+    @When("I register a student with name {string} "
+        + "email {string} age {int} course {string}")
+    public void i_register_a_student(String name,
+            String email, int age, String course)
+            throws Exception {
+        Student s = Student.builder().name(name)
+            .email(email).age(age).course(course).build();
+        lastResult = mockMvc.perform(post("/api/students")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(s)))
+            .andReturn();
+    }
+
+    @When("I send a registration request with "
+        + "malformed JSON body")
+    public void i_send_malformed_json() throws Exception {
+        lastResult = mockMvc.perform(post("/api/students")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{ bad json }"))
+            .andReturn();
+    }
+
+    @Then("the registration response status "
+        + "should be {int}")
+    public void the_registration_status_should_be(
+            int expectedStatus) {
+        int actual = lastResult.getResponse().getStatus();
+        Assert.assertEquals(actual, expectedStatus,
+            "Expected HTTP " + expectedStatus
+            + " but got " + actual);
+    }
+
+    @Then("the registered student name "
+        + "should be {string}")
+    public void the_registered_student_name_should_be(
+            String expectedName) throws Exception {
+        String body = lastResult.getResponse()
+            .getContentAsString();
+        Student returned = objectMapper
+            .readValue(body, Student.class);
+        Assert.assertEquals(returned.getName(),
+            expectedName, "Student name mismatch");
+    }
+}
+\end{lstlisting}
+
+\subsubsection{Gherkin-to-Java Mapping}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lll}
+    \toprule
+    \textbf{Gherkin Step} & \textbf{Annotation} & \textbf{Java Method} \\
+    \midrule
+    \texttt{no students exist in the system} & \texttt{@Given} & \texttt{no\_students\_exist()} \\
+    \texttt{a student with email "..." already exists} & \texttt{@Given} & \texttt{a\_student\_with\_email...} \\
+    \texttt{I register a student with name "..."} & \texttt{@When} & \texttt{i\_register\_a\_student(...)} \\
+    \texttt{I send ... malformed JSON body} & \texttt{@When} & \texttt{i\_send\_malformed\_json()} \\
+    \texttt{the ... status should be \{int\}} & \texttt{@Then} & \texttt{the\_registration\_status...} \\
+    \texttt{the ... name should be "..."} & \texttt{@Then} & \texttt{the\_registered\_student...} \\
+    \bottomrule
+\end{tabular}
+\caption{Mapping between Gherkin steps and Java step definitions}
+\end{table}
+
+\subsubsection{Critical Reflection}
+
+Implementing BDD with Cucumber revealed both the power and the overhead of behaviour-driven testing. The Gherkin feature file served as a \textbf{living documentation} that non-technical stakeholders (such as project managers or clients) could read and validate, ensuring that the development team and business side share a common understanding of expected behaviour.
+
+A critical insight was the role of \texttt{@CucumberContextConfiguration}. Without this annotation, Cucumber would not know which class provides the Spring application context, resulting in runtime failures. This annotation effectively acts as the ``bridge'' between Cucumber's step definition discovery mechanism and Spring's dependency injection container.
+
+The \texttt{cucumber-spring} dependency was essential for enabling \texttt{@Autowired} injection in step definitions. This integration allowed step definitions to use the same MockMvc and repository instances as traditional Spring Boot tests, maintaining consistency across the testing approach.
+
+One limitation observed was that Cucumber step definitions cannot easily share state across step definition classes without using a dependency injection framework or shared context. In this project, all steps were kept in a single class (\texttt{StudentSteps.java}) to avoid this complexity, but larger projects would need a more structured approach.
+
+% ── MEMBER 4 ──────────────────────────────────────────────────────────────────
+\subsection{Member 4 (IT23543300 -- RANKETH K A D): Test Runner, Reporting \& CI/CD}
+
+\subsubsection{Demonstration Overview}
+
+Member 4 was responsible for the \textbf{test orchestration layer}, including the Cucumber-TestNG runner, generating test reports, and setting up the CI/CD pipeline with GitHub Actions.
+
+\subsubsection{Cucumber TestNG Runner}
+
+\begin{lstlisting}[style=javastyle, caption={Cucumber TestNG runner -- \texttt{CucumberRunnerTest.java}}]
+@CucumberOptions(
+    features = "src/test/resources/features/"
+             + "student_registration.feature",
+    glue     = {"steps"},
+    plugin   = {
+        "pretty",
+        "html:target/cucumber-reports/cucumber.html",
+        "json:target/cucumber-reports/cucumber.json"
+    },
+    monochrome = true
+)
+public class CucumberRunnerTest
+        extends AbstractTestNGCucumberTests {
+
+    @Override
+    @DataProvider(parallel = false)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
+}
+\end{lstlisting}
+
+\subsubsection{TestNG Suite Configuration}
+
+\begin{lstlisting}[style=xmlstyle, caption={\texttt{testng.xml} -- Orchestrating all test groups}]
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Student API Test Suite" verbose="2">
+
+    <!-- Member 1: TestNG Assertions -->
+    <test name="Member1 - Controller Assertions">
+        <classes>
+            <class name="tests.StudentControllerTest"/>
+        </classes>
+    </test>
+
+    <!-- Member 2: TestNG Fixtures + DataProvider -->
+    <test name="Member2 - Service Fixtures">
+        <classes>
+            <class name="tests.StudentServiceTest"/>
+        </classes>
+    </test>
+
+    <!-- Member 3 + 4: Cucumber BDD -->
+    <test name="Member3+4 - Cucumber BDD">
+        <classes>
+            <class name="tests.CucumberRunnerTest"/>
+        </classes>
+    </test>
+</suite>
+\end{lstlisting}
+
+\subsubsection{CI/CD Pipeline -- GitHub Actions}
+
+\begin{lstlisting}[style=yamlstyle, caption={\texttt{test.yml} -- GitHub Actions CI/CD workflow}]
+name: Spring Boot CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  pull_request:
+    branches: [ "main", "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+        cache: 'maven'
+
+    - name: Build and run tests with Maven
+      run: mvn clean test
+      working-directory: .
+
+    - name: Publish Test Report
+      if: success() || failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: surefire-test-reports
+        path: target/surefire-reports/
+\end{lstlisting}
+
+\subsubsection{CI/CD Pipeline Explanation}
+
+The GitHub Actions workflow automates the entire testing process:
+
+\begin{enumerate}
+    \item \textbf{Trigger Conditions (lines 3--7):} The pipeline activates on every \texttt{push} or \texttt{pull\_request} to the \texttt{main} or \texttt{master} branch, ensuring that every code change is validated before merging.
+
+    \item \textbf{Environment Setup (lines 16--21):} \texttt{actions/setup-java@v3} provisions a JDK 17 (Temurin distribution) environment and caches Maven dependencies using \texttt{cache: 'maven'}. The caching mechanism reduces build time by reusing previously downloaded dependencies.
+
+    \item \textbf{Test Execution (lines 23--25):} \texttt{mvn clean test} performs a clean build and executes the entire \texttt{testng.xml} suite, running all 13 test cases across all 4 members' contributions.
+
+    \item \textbf{Report Archival (lines 27--32):} \texttt{actions/upload-artifact@v3} uploads the \texttt{target/surefire-reports/} directory as a downloadable artifact. The condition \texttt{if: success() || failure()} ensures reports are \textbf{always uploaded}, even when tests fail, enabling developers to diagnose failures through the archived reports.
+\end{enumerate}
+
+\subsubsection{Test Reports Generated}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lll}
+    \toprule
+    \textbf{Report Type} & \textbf{Location} & \textbf{Format} \\
+    \midrule
+    Cucumber HTML Report & \texttt{target/cucumber-reports/cucumber.html} & HTML \\
+    Cucumber JSON Report & \texttt{target/cucumber-reports/cucumber.json} & JSON \\
+    TestNG Default Report & \texttt{target/surefire-reports/} & XML + HTML \\
+    Surefire HTML Report & \texttt{target/site/surefire-report.html} & HTML \\
+    \bottomrule
+\end{tabular}
+\caption{Generated test reports and their locations}
+\end{table}
+
+\subsubsection{Critical Reflection}
+
+Setting up the CI/CD pipeline revealed the importance of \textbf{environment parity} between local development and CI environments. The use of H2 in-memory database for tests (via \texttt{@ActiveProfiles("test")}) was crucial because the CI environment has no access to the production PostgreSQL database on Neon Cloud. Without this test profile separation, the pipeline would fail on every run.
+
+The choice to use \texttt{AbstractTestNGCucumberTests} instead of JUnit's \texttt{@RunWith(Cucumber.class)} was a deliberate architectural decision. This ensured that Cucumber scenarios are executed as TestNG DataProvider rows, appearing naturally in TestNG reports alongside the other test groups. The alternative would have required maintaining two separate test runners (JUnit for Cucumber and TestNG for others), creating unnecessary complexity.
+
+The \texttt{upload-artifact} step with \texttt{if: success() || failure()} was a critical addition learned through experience. Initially, reports were only uploaded on success, but this defeated the purpose of CI reporting -- developers need to see test reports \textit{especially} when builds fail. This pattern is now considered a best practice for any CI/CD pipeline involving automated testing.
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Overall Critical Reflections}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Strengths of the Chosen Approach}
+
+\begin{enumerate}
+    \item \textbf{Unified Test Runner:} By using TestNG as the sole test framework, all tests -- unit tests, integration tests, and BDD scenarios -- are managed through a single \texttt{testng.xml} configuration. This eliminates the complexity of coordinating multiple test frameworks.
+
+    \item \textbf{Clear Separation of Concerns:} The three-tier testing approach (controller integration tests, service unit tests with mocks, and BDD acceptance tests) provides comprehensive coverage at all application layers while keeping each test class focused on a single responsibility.
+
+    \item \textbf{DataProvider for Test Reusability:} TestNG's \texttt{@DataProvider} proved more natural than JUnit 5's \texttt{@ParameterizedTest} for this use case. The ability to name data providers and reference them by name from multiple test methods made the code self-documenting.
+
+    \item \textbf{Living Documentation:} Cucumber's Gherkin feature files serve as both executable tests and readable specifications. This dual purpose reduces the gap between documentation and implementation, reducing the risk of outdated documentation.
+
+    \item \textbf{Automated Quality Gates:} The GitHub Actions pipeline ensures that every code change is validated before merging, catching regressions early and maintaining a consistent quality standard across the team.
+\end{enumerate}
+
+\subsection{Challenges Encountered}
+
+\begin{enumerate}
+    \item \textbf{Spring Boot's JUnit Bias:} Spring Boot is heavily optimised for JUnit integration. Using TestNG required excluding six JUnit-related dependencies and using \texttt{AbstractTestNGSpringContextTests} as a base class, which is less documented and has fewer community resources.
+
+    \item \textbf{Cucumber-Spring Context Management:} The \texttt{@CucumberContextConfiguration} annotation must be placed on exactly one class in the glue path. If accidentally placed on multiple classes, or omitted entirely, Cucumber fails with cryptic error messages that are difficult to diagnose.
+
+    \item \textbf{Test Isolation in Integration Tests:} Ensuring test isolation with a shared H2 database required disciplined use of \texttt{@BeforeMethod} to clean the database before each test. Forgetting this step in even one test class could cause cascading failures across the entire suite.
+
+    \item \textbf{Report Generation Complexity:} Generating reports from multiple sources (TestNG, Cucumber, Surefire) resulted in reports scattered across different directories. A unified reporting solution (such as Allure) would have simplified this aspect.
+\end{enumerate}
+
+\subsection{Lessons Learned}
+
+\begin{tcolorbox}[insightbox, title=Key Takeaways]
+\begin{enumerate}[nosep]
+    \item \textbf{Framework selection must consider ecosystem compatibility.} While TestNG is powerful, its reduced integration with Spring Boot compared to JUnit adds significant initial setup cost.
+    \item \textbf{BDD is valuable for specification, not just testing.} Cucumber feature files proved most useful as a communication tool between team members, not just as test automation.
+    \item \textbf{CI/CD should be set up early.} Configuring GitHub Actions at the start of the project would have caught integration issues earlier in the development process.
+    \item \textbf{Test isolation is non-negotiable.} Every test must be independently runnable. The \texttt{@BeforeMethod} + \texttt{@AfterMethod} pattern from Member 2's implementation should be applied universally.
+    \item \textbf{Mocking should be framework-agnostic.} Mockito Core works identically with TestNG and JUnit, demonstrating that good library design enables portability across test frameworks.
+\end{enumerate}
+\end{tcolorbox}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{How to Execute the Tests}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\subsection{Prerequisites}
+
+\begin{itemize}
+    \item Java Development Kit (JDK) 17 or higher
+    \item Apache Maven 3.8 or higher
+    \item Git (for version control and CI/CD integration)
+\end{itemize}
+
+\subsection{Running the Complete Test Suite}
+
+\begin{lstlisting}[style=bashstyle, caption={Execute all tests via Maven}]
+cd se3010-testing
+mvn clean test
+\end{lstlisting}
+
+This single command:
+\begin{enumerate}
+    \item Cleans previous build artifacts (\texttt{clean})
+    \item Compiles all source and test code
+    \item Executes the \texttt{testng.xml} suite via Maven Surefire
+    \item Runs all 13 test cases across Members 1--4
+    \item Generates reports in \texttt{target/surefire-reports/} and \texttt{target/cucumber-reports/}
+\end{enumerate}
+
+\subsection{Viewing Reports}
+
+\begin{lstlisting}[style=bashstyle, caption={Access generated test reports}]
+# Open Cucumber HTML report
+start target/cucumber-reports/cucumber.html
+
+# Open Surefire report directory
+start target/surefire-reports/
+\end{lstlisting}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Workload Distribution}
+% ══════════════════════════════════════════════════════════════════════════════
+
+\begin{table}[H]
+\centering
+\begin{tabular}{clp{6.5cm}c}
+    \toprule
+    \textbf{Member} & \textbf{Reg. No.} & \textbf{Responsibilities} & \textbf{Share} \\
+    \midrule
+    1 & IT23534254 & TestNG Assertions, Controller integration tests using MockMvc, HTTP status validation (4 tests) & 25\% \\
+    \addlinespace
+    2 & IT23670334 & TestNG Fixtures (\texttt{@BeforeMethod}/\texttt{@AfterMethod}), \texttt{@DataProvider} parameterised tests, Mockito mocking for service layer (6 test executions) & 25\% \\
+    \addlinespace
+    3 & IT23600416 & Cucumber BDD step definitions, Gherkin feature file authoring, Spring-Cucumber integration via \texttt{@CucumberContextConfiguration} (3 scenarios) & 25\% \\
+    \addlinespace
+    4 & IT23543300 & Cucumber TestNG runner, test reporting (HTML/JSON/Surefire), GitHub Actions CI/CD pipeline configuration, \texttt{testng.xml} suite orchestration & 25\% \\
+    \bottomrule
+\end{tabular}
+\caption{Workload distribution across team members}
+\end{table}
+
+\subsection{Detailed Contribution Matrix}
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{lcccc}
+    \toprule
+    \textbf{Activity} & \textbf{M1} & \textbf{M2} & \textbf{M3} & \textbf{M4} \\
+    \midrule
+    Application development (model, service, controller) & \checkmark & \checkmark & \checkmark & \checkmark \\
+    TestNG assertion tests & \checkmark & & & \\
+    TestNG fixture implementation & & \checkmark & & \\
+    Mockito mock/stub configuration & & \checkmark & & \\
+    DataProvider parameterised tests & & \checkmark & & \\
+    Gherkin feature file authoring & & & \checkmark & \\
+    Cucumber step definitions & & & \checkmark & \\
+    Cucumber TestNG runner setup & & & & \checkmark \\
+    Test suite configuration (\texttt{testng.xml}) & & & & \checkmark \\
+    CI/CD pipeline (GitHub Actions) & & & & \checkmark \\
+    Test reporting setup & & & & \checkmark \\
+    Maven \texttt{pom.xml} dependency management & \checkmark & \checkmark & \checkmark & \checkmark \\
+    React frontend development & \checkmark & \checkmark & \checkmark & \checkmark \\
+    Documentation \& report writing & \checkmark & \checkmark & \checkmark & \checkmark \\
+    \bottomrule
+\end{tabular}
+\caption{Detailed contribution matrix (\checkmark = primary contributor)}
+\end{table}
+
+% ══════════════════════════════════════════════════════════════════════════════
+\section{Conclusion}
+% ══════════════════════════════════════════════════════════════════════════════
+
+This assignment provided hands-on experience with TestNG and Cucumber BDD as testing tools for a Spring Boot REST API. Through the collaborative evaluation, the group gained several critical insights:
+
+\textbf{TestNG} proved to be a powerful and flexible testing framework with features like \texttt{@DataProvider}, XML-based suite management, and multi-level fixtures that offer advantages over JUnit in certain use cases. However, its reduced ecosystem support within the Spring Boot community means that teams must invest additional effort in initial configuration and troubleshooting.
+
+\textbf{Cucumber BDD} demonstrated its value as a specification tool that bridges the gap between technical and non-technical stakeholders. The ability to write executable specifications in plain English (Gherkin) ensures that test scenarios remain understandable and maintainable, even as the codebase evolves.
+
+The integration of \textbf{CI/CD via GitHub Actions} reinforced the importance of automated testing in modern software development. By running the complete test suite on every code change, the team maintained a high confidence level in the application's reliability and quickly identified regressions.
+
+Overall, the project successfully demonstrated that TestNG and Cucumber can work together effectively as a comprehensive testing solution, covering unit testing, integration testing, behaviour-driven development, test reporting, and continuous integration within a single, cohesive framework.
+
+\end{document}

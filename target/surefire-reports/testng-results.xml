@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="13" passed="13" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-03-13T19:14:11 IST" name="Student API Test Suite" finished-at="2026-03-13T19:14:17 IST" duration-ms="5965">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.CucumberRunnerTest@708400f6]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-03-13T19:14:11 IST" name="Member1 - Controller Assertions" finished-at="2026-03-13T19:14:15 IST" duration-ms="4680">
+      <class name="tests.StudentControllerTest">
+        <test-method is-config="true" signature="springTestContextBeforeTestClass()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:11 IST" name="springTestContextBeforeTestClass" finished-at="2026-03-13T19:14:11 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method is-config="true" signature="springTestContextPrepareTestInstance()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:11 IST" name="springTestContextPrepareTestInstance" finished-at="2026-03-13T19:14:15 IST" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" duration-ms="3998" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextBeforeTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="337" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testCreateStudent_MalformedJson_Returns400() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="cleanUp" finished-at="2026-03-13T19:14:15 IST" duration-ms="96" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method signature="testCreateStudent_MalformedJson_Returns400()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="testCreateStudent_MalformedJson_Returns400" finished-at="2026-03-13T19:14:15 IST" duration-ms="69" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateStudent_MalformedJson_Returns400 -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextAfterTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testCreateStudent_MalformedJson_Returns400() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextBeforeTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testCreateStudent_Returns201AndCorrectBody() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method signature="testCreateStudent_Returns201AndCorrectBody()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="testCreateStudent_Returns201AndCorrectBody" finished-at="2026-03-13T19:14:15 IST" duration-ms="102" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateStudent_Returns201AndCorrectBody -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="cleanUp" finished-at="2026-03-13T19:14:15 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextAfterTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testCreateStudent_Returns201AndCorrectBody() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextBeforeTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testGetStudent_NotFound_Returns404() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="cleanUp" finished-at="2026-03-13T19:14:15 IST" duration-ms="9" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method signature="testGetStudent_NotFound_Returns404()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="testGetStudent_NotFound_Returns404" finished-at="2026-03-13T19:14:15 IST" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetStudent_NotFound_Returns404 -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextAfterTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testGetStudent_NotFound_Returns404() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextBeforeTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testGetStudent_Returns200() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method is-config="true" signature="cleanUp()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="cleanUp" finished-at="2026-03-13T19:14:15 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+        <test-method signature="testGetStudent_Returns200()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="testGetStudent_Returns200" finished-at="2026-03-13T19:14:15 IST" duration-ms="6" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetStudent_Returns200 -->
+        <test-method is-config="true" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextAfterTestMethod" finished-at="2026-03-13T19:14:15 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.StudentControllerTest.testGetStudent_Returns200() throws java.lang.Exception]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method is-config="true" signature="springTestContextAfterTestClass()[pri:0, instance:tests.StudentControllerTest@17a1e4ca]" started-at="2026-03-13T19:14:15 IST" name="springTestContextAfterTestClass" finished-at="2026-03-13T19:14:15 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- tests.StudentControllerTest -->
+    </test> <!-- Member1 - Controller Assertions -->
+    <test started-at="2026-03-13T19:14:15 IST" name="Member2 - Service Fixtures" finished-at="2026-03-13T19:14:16 IST" duration-ms="333">
+      <class name="tests.StudentServiceTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:15 IST" name="setUp" finished-at="2026-03-13T19:14:15 IST" duration-ms="218" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCreateStudent(java.lang.String,java.lang.String,int,java.lang.String)[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:15 IST" name="testCreateStudent" data-provider="studentData" finished-at="2026-03-13T19:14:16 IST" duration-ms="90" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Alice]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[alice@test.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[22]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SE3010]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateStudent -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="8" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="setUp" finished-at="2026-03-13T19:14:16 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testCreateStudent(java.lang.String,java.lang.String,int,java.lang.String)[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="testCreateStudent" data-provider="studentData" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Bob]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[bob@test.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[25]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SE3020]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateStudent -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="setUp" finished-at="2026-03-13T19:14:16 IST" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testCreateStudent(java.lang.String,java.lang.String,int,java.lang.String)[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="testCreateStudent" data-provider="studentData" finished-at="2026-03-13T19:14:16 IST" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Carol]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[carol@test.com]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[20]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[SE3030]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCreateStudent -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testGetAllStudents_ReturnsList()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="testGetAllStudents_ReturnsList" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetAllStudents_ReturnsList -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="setUp" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method signature="testGetStudentById_Found()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="testGetStudentById_Found" finished-at="2026-03-13T19:14:16 IST" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetStudentById_Found -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="setUp" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="setUp" finished-at="2026-03-13T19:14:16 IST" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testGetStudentById_NotFound()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="testGetStudentById_NotFound" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetStudentById_NotFound -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.StudentServiceTest@8692d67]" started-at="2026-03-13T19:14:16 IST" name="tearDown" finished-at="2026-03-13T19:14:16 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.StudentServiceTest -->
+    </test> <!-- Member2 - Service Fixtures -->
+    <test started-at="2026-03-13T19:14:16 IST" name="Member3+4 - Cucumber BDD" finished-at="2026-03-13T19:14:17 IST" duration-ms="930">
+      <class name="tests.CucumberRunnerTest">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:tests.CucumberRunnerTest@708400f6]" started-at="2026-03-13T19:14:16 IST" name="setUpClass" finished-at="2026-03-13T19:14:16 IST" duration-ms="640" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@75ee63f2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.CucumberRunnerTest@708400f6]" started-at="2026-03-13T19:14:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-13T19:14:16 IST" duration-ms="194" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Successful student registration"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Student Registration API"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.CucumberRunnerTest@708400f6]" started-at="2026-03-13T19:14:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-13T19:14:16 IST" duration-ms="24" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Duplicate email returns conflict error"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Student Registration API"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:tests.CucumberRunnerTest@708400f6]" started-at="2026-03-13T19:14:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-03-13T19:14:16 IST" duration-ms="23" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Missing required field returns bad request error"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Student Registration API"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:tests.CucumberRunnerTest@708400f6]" started-at="2026-03-13T19:14:16 IST" name="tearDownClass" finished-at="2026-03-13T19:14:17 IST" duration-ms="37" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- tests.CucumberRunnerTest -->
+    </test> <!-- Member3+4 - Cucumber BDD -->
+  </suite> <!-- Student API Test Suite -->
+</testng-results>

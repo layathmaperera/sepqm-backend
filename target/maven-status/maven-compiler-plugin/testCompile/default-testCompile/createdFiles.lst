@@ -1,0 +1,4 @@
+tests\StudentControllerTest.class
+steps\StudentSteps.class
+tests\StudentServiceTest.class
+tests\CucumberRunnerTest.class

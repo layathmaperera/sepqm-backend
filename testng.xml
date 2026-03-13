@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Student API Test Suite" verbose="2">
+
+    <!-- Member 1: TestNG Assertions (MockMvc controller tests) -->
+    <test name="Member1 - Controller Assertions">
+        <classes>
+            <class name="tests.StudentControllerTest"/>
+        </classes>
+    </test>
+
+    <!-- Member 2: TestNG Fixtures + DataProvider (service unit tests) -->
+    <test name="Member2 - Service Fixtures">
+        <classes>
+            <class name="tests.StudentServiceTest"/>
+        </classes>
+    </test>
+
+    <!-- Member 3 + 4: Cucumber BDD via TestNG runner -->
+    <test name="Member3+4 - Cucumber BDD">
+        <classes>
+            <class name="tests.CucumberRunnerTest"/>
+        </classes>
+    </test>
+
+</suite>
+
